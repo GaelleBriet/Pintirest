@@ -16,6 +16,7 @@
 
   {# formulaire de suppression du pin #}
   <form id="js-pin-delete-form" action="{{ path('app_pins_delete', {id: pin.id}) }}" method="POST" style="display:none">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token('pin_deletion_'~pin.id) }}">
     <input type="hidden" name="_method" value="DELETE">
   </form>
 {% endblock %}
