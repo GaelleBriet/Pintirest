@@ -12,7 +12,6 @@
   {# lien de suppression : fait appel à un evenement javascript onclikc pour utiliser le formulaire de suppression #}
   <a href="#" onclick="event.preventDefault(); confirm('Are you sure?') && 
   document.getElementById('js-pin-delete-form').submit()">Delete</a>
-  <a href="{{ path('app_home') }}">Go Back</a>
 
   {# formulaire de suppression du pin #}
   <form id="js-pin-delete-form" action="{{ path('app_pins_delete', {id: pin.id}) }}" method="POST" style="display:none">
