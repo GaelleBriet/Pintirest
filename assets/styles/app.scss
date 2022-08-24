@@ -41,3 +41,10 @@ body {
     @extend .img-thumbnail;
   }
 }
+
+.pin img {
+  &:hover {
+    transition: transform 0.3s ease-out;
+    transform: scale(1.075);
+  }
+}
