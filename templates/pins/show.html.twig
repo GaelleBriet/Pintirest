@@ -5,18 +5,16 @@
 {% block body %}
   <div class="row">
     <div class="col-md-6 mx-auto">
-
       <article class="bg-white rounded shadow pin">
 
-          <div class="mw-100 overflow-hidden rounded-top">
-              <a href="{{ path('app_pins_show', {id: pin.id}) }}">
-                  <img src="{{ (pin.imageName ? vich_uploader_asset(pin) : asset('build/images/placeholder.jpg')) | imagine_filter('squared_thumbnail_medium') }}" alt="{{ pin.title }}" class="w-100 rounded-top">
-              </a>
-          </div>
+        <div class="mw-100 overflow-hidden rounded-top">
+          <img src="{{ (pin.imageName ? vich_uploader_asset(pin) : asset('build/images/placeholder.jpg')) | imagine_filter('squared_thumbnail_medium') }}" alt="{{ pin.title }}" class="w-100 rounded-top">
+        </div>
 
-          <h1 class="h5 ps-3 pt-3"><a href="{{ path('app_pins_show', {id: pin.id}) }}" class=" text-secondary text-decoration-none">{{pin.title}}</a></h1>
+        <div class="p-3">
+          <h1 class="h5 text-secondary">{{pin.title}}</h1>
           {# <p>{{pin.description|u.truncate(10, '...', false)}}</p> #}
-          <p class="text-muted ps-3 pb-3">
+          <p class="text-muted">
             <small>
               Submitted
               <time datetime="{{ pin.createdAt|date('Y-m-d H:i:s') }}">{{ pin.createdAt|ago}}</time>  
@@ -24,11 +22,11 @@
             </small>
           </p>
 
-          <p class="ps-3 pb-3">
+          <p class="pt-3 text-break">
             {{ pin.description }}
           </p>
 
-          <div class="ps-3 pb-3">
+          <div class="pt-3">
             <a href="{{ path('app_pins_edit', {id: pin.id}) }}" class="btn btn-light">Edit</a>
             {# lien de suppression : fait appel à un evenement javascript onclikc pour utiliser le formulaire de suppression #}
             <a href="#" onclick="event.preventDefault(); confirm('Are you sure?') && 
@@ -40,6 +38,7 @@
               <input type="hidden" name="_method" value="DELETE">
             </form>
           </div>
+        </div>
           
       </article>
     </div>
