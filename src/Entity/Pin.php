@@ -51,7 +51,7 @@ class Pin
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $imageName = null;
 
-    #[ORM\ManyToOne(inversedBy: 'pins')]
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'pins')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 

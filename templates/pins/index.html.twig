@@ -22,7 +22,7 @@
                         </div>
                         <h2 class="h5 ps-3 pt-3"><a href="{{ path('app_pins_show', {id: pin.id}) }}" class=" text-secondary text-decoration-none">{{pin.title}}</a></h2>
                         {# <p>{{pin.description|u.truncate(10, '...', false)}}</p> #}
-                        <p class="text-muted ps-3 pb-3"><small>Submitted [OWNER FULL NAME]</small></p>
+                        <p class="text-muted ps-3 pb-3"><small>Submitted by {{ pin.user.fullName}}</small></p>
                     </article>
                     
                 </div>
