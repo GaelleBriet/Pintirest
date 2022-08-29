@@ -5,7 +5,7 @@
 {% block body %}
     <div class="row">
         <div class="col-md-6 mx-auto">
-            <h1 class="mt-5 mb-3 text-center">Please sign in</h1>
+            <h1 class="mt-5 mb-3 text-center">Se connecter</h1>
             <p class="mb-5 text-center text-muted">Your pins are waiting for you.</p>
             <form method="post">
             {# {{dump(error.messageKey)}} #}
@@ -31,7 +31,7 @@
                             Remember me
                         </label>
                     </div>
-                    <a href="#">Forgot password?</a>
+                    <a href="#">FMot de passe perdu?</a>
                 </div>
                 
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
@@ -42,7 +42,7 @@
                     </button>
                 </div>
 
-                <p class="mt-5 mb-3 text-center text-muted">Not registered yet? <a href="#">Create an account</a></p>
+                <p class="mt-5 mb-3 text-center text-muted">Pas encore de compte? <a href="{{ path('app_register') }}">Créer un compte</a></p>
                 
             </form>
         </div>
