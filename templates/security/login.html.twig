@@ -31,7 +31,7 @@
                             Remember me
                         </label>
                     </div>
-                    <a href="#">Mot de passe perdu?</a>
+                    <a href="{{ path('app_forgot_password_request') }}">Mot de passe perdu?</a>
                 </div>
                 
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">

@@ -5,6 +5,8 @@
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
   app.supported_locales: ["en", "fr"]
+  app.mail_from_name: "Pintirest"
+  app.mail_from_adress: "noreply@pintirest.com"
 
 services:
   # default configuration for services in *this* file
