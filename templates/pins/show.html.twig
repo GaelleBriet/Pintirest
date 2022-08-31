@@ -26,18 +26,21 @@
             {{ pin.description }}
           </p>
 
-          <div class="pt-3">
-            <a href="{{ path('app_pins_edit', {id: pin.id}) }}" class="btn btn-light">Edit</a>
-            {# lien de suppression : fait appel à un evenement javascript onclikc pour utiliser le formulaire de suppression #}
-            <a href="#" onclick="event.preventDefault(); confirm('Are you sure?') && 
-            document.getElementById('js-pin-delete-form').submit()" class="btn btn-light">Delete</a>
+          {% if app.user == pin.user %}
+          {# {% if is_granted('PIN_MANAGE', pin) %} #}
+            <div class="pt-3">
+              <a href="{{ path('app_pins_edit', {id: pin.id}) }}" class="btn btn-light">Edit</a>
+              {# lien de suppression : fait appel à un evenement javascript onclikc pour utiliser le formulaire de suppression #}
+              <a href="#" onclick="event.preventDefault(); confirm('Are you sure?') && 
+              document.getElementById('js-pin-delete-form').submit()" class="btn btn-light">Delete</a>
 
-          {# formulaire de suppression du pin #}
-            <form id="js-pin-delete-form" action="{{ path('app_pins_delete', {id: pin.id}) }}" method="POST" style="display:none">
-              <input type="hidden" name="csrf_token" value="{{ csrf_token('pin_deletion_'~pin.id) }}">
-              <input type="hidden" name="_method" value="DELETE">
-            </form>
-          </div>
+            {# formulaire de suppression du pin #}
+              <form id="js-pin-delete-form" action="{{ path('app_pins_delete', {id: pin.id}) }}" method="POST" style="display:none">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token('pin_deletion_'~pin.id) }}">
+                <input type="hidden" name="_method" value="DELETE">
+              </form>
+            </div>
+          {% endif %}
         </div>
           
       </article>

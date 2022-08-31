@@ -5,8 +5,8 @@
 {% block body %}
     <div class="row">
         <div class="col-md-6 mx-auto">
-            {# <h1>{{ pins|length}} Pins</h1> #}
             <h1>Edit Pin #{{ pin.id }}</h1>
+
             {{ include('pins/_form.html.twig', {submitButtonText: 'Update Pin'}) }}
         </div>
     </div>    
